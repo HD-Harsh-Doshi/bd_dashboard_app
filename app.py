@@ -6,28 +6,35 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- CSS TO HIDE GITHUB, FORK, AND PENCIL BUTTONS ---
-hide_toolbar_css = """
+hide_all_viewer_elements = """
     <style>
-    /* Hides the GitHub, Fork, and Edit buttons */
+    /* 1. Hides the Fork icon and the "Fork this app" text */
+    button[data-testid="stBaseButton-header"] {
+        display: none !important;
+    }
+
+    /* 2. Hides the GitHub icon and the status widget */
     div[data-testid="stStatusWidget"] {
-        visibility: hidden;
+        display: none !important;
     }
-    /* Hides the 'Edit' pencil button specifically */
+
+    /* 3. Hides the Edit/Pencil button (Deploy button) */
     .stAppDeployButton {
-        display: none;
+        display: none !important;
     }
-    /* Hides the 'Made with Streamlit' footer */
+
+    /* 4. Hides the 'Made with Streamlit' footer at the bottom */
     footer {
-        visibility: hidden;
+        visibility: hidden !important;
     }
-    /* Optional: Hides the main menu (three dots) */
-    #MainMenu {
-        visibility: hidden;
+    
+    /* 5. Extra safety: Hide any tooltips that might show "Fork" on hover */
+    div[data-testid="stTooltipHoverTarget"] {
+        display: none !important;
     }
     </style>
 """
-st.markdown(hide_toolbar_css, unsafe_allow_html=True)
+st.markdown(hide_all_viewer_elements, unsafe_allow_html=True)
 
 def main():
     st.sidebar.title("Navigation")
