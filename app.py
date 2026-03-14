@@ -6,6 +6,29 @@ st.set_page_config(
     layout="wide"
 )
 
+# --- CSS TO HIDE GITHUB, FORK, AND PENCIL BUTTONS ---
+hide_toolbar_css = """
+    <style>
+    /* Hides the GitHub, Fork, and Edit buttons */
+    div[data-testid="stStatusWidget"] {
+        visibility: hidden;
+    }
+    /* Hides the 'Edit' pencil button specifically */
+    .stAppDeployButton {
+        display: none;
+    }
+    /* Hides the 'Made with Streamlit' footer */
+    footer {
+        visibility: hidden;
+    }
+    /* Optional: Hides the main menu (three dots) */
+    #MainMenu {
+        visibility: hidden;
+    }
+    </style>
+"""
+st.markdown(hide_toolbar_css, unsafe_allow_html=True)
+
 def main():
     st.sidebar.title("Navigation")
     st.sidebar.info("Select a module from the list above.")
