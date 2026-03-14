@@ -1,6 +1,36 @@
 import streamlit as st
 from database import run_query, load_data
 
+hide_all_viewer_elements = """
+    <style>
+    /* 1. Hides the Fork icon and the "Fork this app" text */
+    button[data-testid="stBaseButton-header"] {
+        display: none !important;
+    }
+
+    /* 2. Hides the GitHub icon and the status widget */
+    div[data-testid="stStatusWidget"] {
+        display: none !important;
+    }
+
+    /* 3. Hides the Edit/Pencil button (Deploy button) */
+    .stAppDeployButton {
+        display: none !important;
+    }
+
+    /* 4. Hides the 'Made with Streamlit' footer at the bottom */
+    footer {
+        visibility: hidden !important;
+    }
+    
+    /* 5. Extra safety: Hide any tooltips that might show "Fork" on hover */
+    div[data-testid="stTooltipHoverTarget"] {
+        display: none !important;
+    }
+    </style>
+"""
+st.markdown(hide_all_viewer_elements, unsafe_allow_html=True)
+
 st.title("⚙️ Donor Records Management")
 
 tab1, tab2, tab3 = st.tabs(["Add New Donor", "Edit Record", "Delete Record"])
