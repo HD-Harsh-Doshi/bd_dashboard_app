@@ -29,11 +29,6 @@ hide_all_viewer_elements = """
         visibility: hidden !important;
     }
 
-    /* 5. Hides the Main Menu (the 'hamburger' icon) if you want total lockdown */
-    #MainMenu {
-        visibility: hidden !important;
-    }
-
     /* Adjusts the header height so there isn't a blank gap at the top */
     header {
         visibility: hidden !important;
