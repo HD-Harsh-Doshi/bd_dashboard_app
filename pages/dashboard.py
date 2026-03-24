@@ -36,6 +36,7 @@ hide_all_viewer_elements = """
 """
 st.markdown(hide_all_viewer_elements, unsafe_allow_html=True)
 
+
 df = load_data()
 df = process_data(df)
 
