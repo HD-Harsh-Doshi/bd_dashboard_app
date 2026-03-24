@@ -6,31 +6,37 @@ st.set_page_config(
     layout="wide"
 )
 
+
 hide_all_viewer_elements = """
     <style>
-    /* 1. Hides the Fork icon and the "Fork this app" text */
-    button[data-testid="stBaseButton-header"] {
+    /* 1. Hides the Fork icon and the header buttons */
+    button[data-testid="stHeaderActionElements"] {
         display: none !important;
     }
 
-    /* 2. Hides the GitHub icon and the status widget */
+    /* 2. Hides the GitHub icon and status widget */
     div[data-testid="stStatusWidget"] {
         display: none !important;
     }
 
-    /* 3. Hides the Edit/Pencil button (Deploy button) */
+    /* 3. Hides the Deploy button */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* 4. Hides the 'Made with Streamlit' footer at the bottom */
+    /* 4. Hides the 'Made with Streamlit' footer */
     footer {
         visibility: hidden !important;
     }
-    
-    /* 5. Extra safety: Hide any tooltips that might show "Fork" on hover */
-    div[data-testid="stTooltipHoverTarget"] {
-        display: none !important;
+
+    /* 5. Hides the Main Menu (the 'hamburger' icon) if you want total lockdown */
+    #MainMenu {
+        visibility: hidden !important;
+    }
+
+    /* Adjusts the header height so there isn't a blank gap at the top */
+    header {
+        visibility: hidden !important;
     }
     </style>
 """
